@@ -1,0 +1,17 @@
+<!-- <app-product-list></app-product-list> -->
+<h1>{{welcome}}</h1>
+                <table class="table">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Summary</th>
+                    </tr>
+                    <tr *ngFor="let game of games; let i = index">
+                        <td>{{i + 1}}</td>
+                        <td [ngClass]= "color" [ngStyle]="{backgroundColor:color}">
+                            <a class="nav-link" routerLink="/productDetail" [routerLinkActiveOptions]="{exact: true}" routerLinkActive (mouseover)="changeStyle($event)" (mouseout)="changeStyle($event)">{{game.Name}}</a></td>
+                        <td><img src='{{game.Image}}' alt="car" class="img-responsive"></td>
+                        <td>{{game.Summary}}</td>
+                    </tr>
+                </table>

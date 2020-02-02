@@ -1,0 +1,30 @@
+<!-- <table class="table">
+  <tr>
+    <th *ngFor="let col of columns">
+      {{col}}
+    </th>
+  </tr>
+  <tr *ngFor="let char of products">
+    <td *ngFor="let col of columns">
+      {{char[col]}}
+    </td>
+  </tr>
+</table> -->
+<table class="table">
+  <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Image</th>
+      <th>Summary</th>
+  </tr>
+  <tr *ngFor="let product of products">
+      <td>{{product.id}}</td>
+      <td [ngClass]= "color" [ngStyle]="{backgroundColor:color}">
+          <a class="nav-link" [routerLink]="['/productDetail', product.id]"
+           [routerLinkActiveOptions]="{exact: true}"
+           routerLinkActive (mouseover)="changeStyle($event)" 
+           (mouseout)="changeStyle($event)">{{product.name}}</a></td>
+      <td><img src='{{product.image}}' alt="car" class="img-responsive"></td>
+      <td>{{product.summary}}</td>
+  </tr>
+</table>
